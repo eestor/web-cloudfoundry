@@ -1,0 +1,59 @@
+div(class="fullsize padded form-inline")
+
+    h3 Property Summary
+
+    table(cellpadding="20" class="table table-striped" style="width: 550px;") 
+        tbody
+            tr 
+                td Area (sq ft)
+                td(class="right bold") 2,000
+            tr 
+                td Number of Squares
+                td(class="right bold") 20
+            tr 
+                td Predominant Pitch
+                td(class="right bold") 11/12
+            tr 
+                td Flashing (ft)
+                td(class="right bold") 75
+            tr 
+                td Gutter Edge (ft)
+                td(class="right bold") 250
+        
+            tr 
+                td(colspan="2")
+                    br
+            tr 
+                td(colspan="2" class="bold") Replacement Cost
+            tr 
+                td Shingle ($ per square)
+                td(class="right")
+                    input(type="number" class="form-control right" id="costPerSquare" value="75.00" step="0.1" min="0" )
+            tr 
+                td Flashing ($ per foot)
+                td(class="right")
+                    input(type="number" class="form-control right" id="costPerFlashing" value="25.00" step="0.1" min="0" )
+            tr 
+                td Gutter Edge ($ per foot)
+                td(class="right")
+                    input(type="number" class="form-control right" id="costPerGutter" value="5.00" step="0.1" min="0" )
+
+            
+            tr 
+                td(colspan="2")
+                    br
+            tr(class="emphasis_row") 
+                td Estimated Replacement Cost
+            tr
+                td Shingle Cost 
+                td(class="right bold" id="shingleCost") 
+            tr
+                td Flashing Cost 
+                td(class="right bold" id="flashingCost") 
+            tr
+                td Gutter Cost 
+                td(class="right bold" id="gutterCost") 
+            tr(class="emphasis_row") 
+                td Total Cost
+                td(class="right bold red" id="totalCost") 
+            

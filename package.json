@@ -1,0 +1,28 @@
+{
+  "name": "Jupiter-Web",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cfenv": "1.0.x",
+    "cloudant": "^1.4.3",
+    "cookie-parser": "^1.4.3",
+    "express": "4.13.x",
+    "express-fileupload": "0.0.5",
+    "jade": "^1.11.0",
+    "jsonfile": "^2.4.0",
+    "mapbox": "^1.0.0-beta3",
+    "method-override": "^2.3.7",
+    "multer": "^1.2.0",
+    "s3": "^4.4.0",
+    "socket.io": "^1.4.8",
+    "uuid": "^2.0.2"
+  },
+  "repository": {},
+  "engines": {
+    "node": "4.x"
+  }
+}

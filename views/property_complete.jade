@@ -1,0 +1,51 @@
+
+
+
+ul(class="nav nav-tabs")
+    li(class="hamburger")
+        a(href="#" id="hamburger") 
+            span(class="glyphicon glyphicon-menu-hamburger")
+    li(class="active")
+        a(data-toggle="tab" href="#images") Images
+    //- li
+    //-     a(data-toggle="tab" href="#3D-reconstruction") 3D Reconstruction
+    li
+        a(data-toggle="tab" href="#ortho-map") Map
+    li
+        a(data-toggle="tab" href="#estimates") Summary
+
+
+div(class="tab-content")
+    div(id="images" class="tab-pane fade in active")
+        div(class="thumbnails fullSize")
+            each image in images
+                img(id=image._id class="thumbnail lazy" src="/static/images/home-placeholder.jpg" data-original="https://s3-api.us-geo.objectstorage.softlayer.net/yuma310/"+image.path.replace('/original', '/thumbnail') img-original="https://s3-api.us-geo.objectstorage.softlayer.net/yuma310/"+image.path) 
+        div(class="fullsizeContainer hidden")
+            div(id="image-renderer")
+            div(id="map-controls")
+                input(type="checkbox" id="showWatsonData" value="COMPLETE")
+                label(for="showWatsonData") &nbsp; Show Watson VR Overlay &nbsp; 
+
+            div(class="imageProgressContainer hidden")
+                div(class="image-progress")
+                    div(class="progress-bar progress-bar-striped active" role="progressbar")
+                        span(class="sr-only")
+
+    //- div(id="3D-reconstruction" class="tab-pane fade")
+        div(id="iframeWrapper" class="fullSize")
+            iframe(id="3D-reconstruction-iframe" frame-src="https://s3-api.us-geo.objectstorage.softlayer.net/yuma310/"+body._id+"/odm-original/potree/examples/web-output.html" class="iframe-embed")
+
+
+    div(id="ortho-map" class="tab-pane fade")
+        div(id="ortho-map-instance")
+    
+
+    div(id="estimates" class="tab-pane fade")
+        include ./estimation.jade
+
+
+script(src="/static/scripts/async.min.js")
+script(src="/static/scripts/proj4.js")
+    
+
+

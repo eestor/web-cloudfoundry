@@ -1,0 +1,20 @@
+html
+  head
+    title jupiter
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous")
+    script(src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")    
+    link(href='/static/css/styles.css' rel='stylesheet')
+    meta(name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no")
+    <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+  body
+
+      div(class='heading')
+        if (pageTitle == "")
+          span 
+        else 
+          a(href=backLink) 
+            span(class="glyphicon glyphicon-chevron-left ")
+          span= " | " + pageTitle 

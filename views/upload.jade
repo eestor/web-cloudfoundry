@@ -1,0 +1,61 @@
+
+div(class="upload_controls")
+    div(style="display:table; width:100%;")
+        div(class="upload-controls-cell")
+            span(class="btn btn-success fileinput-button dz-clickable")
+                i(class="glyphicon glyphicon-plus")
+                span &nbsp; Add files...
+            | &nbsp; 
+            button(class="btn btn-primary start" type="submit")
+                i(class="glyphicon glyphicon-upload")
+                span &nbsp; Start Upload
+            | &nbsp; 
+            button(class="btn btn-warning cancel" type="reset") 
+                i(class="glyphicon glyphicon-ban-circle")
+                span &nbsp; Cancel Upload
+        div(class="upload-controls-cell right")
+            span(id="uploadTotal")= images.length + " images uploaded"
+            input(type="hidden" id="imagesUploaded" value=images.length)
+            | &nbsp;
+            button(class="btn btn-primary startProcessing disabled" type="submit" disabled)
+                i(class="glyphicon glyphicon-eye-open")
+                span &nbsp; Begin Analysis
+            form(id="beginAnalysisForm")
+                input(type="hidden" name="propertyId" value=body._id)
+            if images.length > 0 
+                script
+                    | $(".startProcessing").removeClass("disabled").prop("disabled", false)
+ 
+
+div(class="upload-container")
+    
+    div(class="table table-striped files" id="previews")
+        div(id="template" class="file-row hidden")
+            div
+                span(class="preview")
+                    
+            div
+                p(class="name" data-dz-name)
+                strong(class="error text-danger" data-dz-errormessage)
+            div
+                p(class="size" data-dz-size)
+                div(class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0")
+                    div(class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress)
+            
+            div
+                button(class="btn btn-primary start")
+                    i(class="glyphicon glyphicon-upload")
+                    span &nbsp; Start
+                button(data-dz-remove class="btn btn-warning cancel")
+                    i(class="glyphicon glyphicon-ban-circle")
+                    span &nbsp; Cancel
+                button(data-dz-remove class="btn btn-danger delete")
+                    i(class="glyphicon glyphicon-trash")
+                    span &nbsp; Remove
+
+div(class="upload-debug-container")
+    include ./monaco.jade
+
+script(src="/static/scripts/dropzone.js")
+script(src="/static/scripts/upload.js")
+        

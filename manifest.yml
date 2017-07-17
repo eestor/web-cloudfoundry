@@ -1,0 +1,10 @@
+applications:
+- path: .
+  memory: 1024M
+  instances: 1
+  domain: mybluemix.net
+  name: web-jup-svr
+  host: web-jup-svr
+  disk_quota: 2048M
+  services:
+  - web-jup-db

@@ -1,0 +1,52 @@
+include ./header.jade
+
+
+div(id="content")
+    div(class="sidebar")
+
+        img(class="mainImage" src=body.primaryImage ? "https://s3-api.us-geo.objectstorage.softlayer.net/yuma310/"+body.primaryImage.replace('/original', '/thumbnail') : "/static/images/home-placeholder.jpg" )
+
+        div(class="status")= "STATUS: " + body.status
+        div(class="sidebarContent")
+            div 
+                b Address:
+            div= body.street 
+            div= body.city + ", " + body.state + ", " + body.zip
+
+            hr 
+
+            div 
+                b Claim Details:
+            div= claimDetails ? claimDetails : "not specified"
+
+
+            hr 
+
+            div 
+                b Property Observations:
+            div= propertyObservations ? propertyObservations : "not specified"
+
+            hr 
+
+            div 
+                b Weather Observations:
+            div= weatherNotes ? weatherNotes : "not specified"
+
+
+    div(class="body" id="actions")
+        if body.status == enums.PropertyState.READY_FOR_UPLOAD
+            include ./upload.jade
+        else if body.status == enums.PropertyState.READY_FOR_PROCESSING || body.status == enums.PropertyState.PROCESSING
+            include ./property_debugOutput.jade
+        else if body.status == enums.PropertyState.COMPLETE
+            include ./property_complete.jade
+        else
+            div(class="col-md-12") Already uploaded
+            
+            
+script(src='/static/scripts/jquery.lazyload.js')
+script(src="/static/scripts/mapbox-interaction.js")
+script(src="/static/scripts/property.js")
+
+
+script(src="/static/scripts/property_analysis.js")

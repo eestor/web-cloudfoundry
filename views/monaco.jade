@@ -1,0 +1,22 @@
+div(id="monaco" class="fullSize")
+
+script(src="/static/monaco/vs/loader.js")
+
+script.
+    var editor = undefined; 
+    $(document).ready(function(event){
+        require.config({ paths: { 'vs': '/static/monaco/vs' }});
+        require(['vs/editor/editor.main'], function() {
+            editor = monaco.editor.create(document.getElementById("monaco"), {
+                value: "",
+                language: ""
+            });
+        })
+
+
+
+        window.addEventListener('resize', function () {
+            editor.layout();
+        });
+
+    })

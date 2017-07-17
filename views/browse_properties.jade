@@ -1,0 +1,30 @@
+include ./header.jade
+
+- var lastCapture = ""
+
+div(class="container-fluid scrollable mainContent")
+    br
+    form(class="browse-search")
+        div(class="input-group")
+            input(class="form-control " placeholder="Enter property search address...")
+            span(class="input-group-btn")
+                button(type="submit" class="btn btn-primary") Search
+
+    
+    div
+    each row in body.rows
+        if (lastCapture != row.value.captureDate)
+            - lastCapture = row.value.captureDate
+            div(class="group-break")= lastCapture
+
+        a(class="listItem" href="./property/" + row.id)
+            div(class="listCell")
+                div(class="thumbnail" style="background-image:url('" + (row.value.primaryImage ? "https://s3-api.us-geo.objectstorage.softlayer.net/yuma310/" + row.value.primaryImage.replace('/original', '/thumbnail') : "/static/images/home-placeholder.jpg") + "')")
+                div(class="bottom")= "STATUS: " + row.value.status
+                div(class="address")!= row.value.street + "<br>" + row.value.city + ", " + row.value.state + ", " + row.value.zip
+
+    div(class="bottomSpacer")
+
+include ./footer.jade
+
+                        

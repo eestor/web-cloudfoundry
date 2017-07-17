@@ -1,0 +1,70 @@
+include ./header.jade
+
+br
+div(class="container-fluid scrollable mainContent")
+
+    div(class="well")
+        p Please provide additional information for use in the property analysis.
+        form(action="/property_analysis" method="post")
+
+            div(class="row")
+                div(class="col-md-12")
+                    div(class="form-group")
+                        label(for="captureDate") Date of Image Capture:
+                        input(type="date" class="form-control" id="captureDate" name="captureDate" placeholder="" style="width:200px" required)
+
+            hr
+            div(class="row")
+                div(class="col-md-7")
+                    
+                    div(class="form-group")
+                        label(for="street") Street:
+                        input(type="text" class="form-control" id="street" name="street" placeholder="Property Street Address" required)
+
+                    div(class="form-group")
+                        label(for="city") City:
+                        input(type="text" class="form-control" id="city" name="city" placeholder="City" required)
+
+                    div(class="form-group")
+                        label(for="state") State:
+                        input(type="text" class="form-control" id="state" name="state" placeholder="State" required)
+
+                    div(class="form-group")
+                        label(for="zip") Zip Code:
+                        input(type="text" class="form-control" id="zip" name="zip" placeholder="Zip Code")
+
+                div(class="col-md-5")
+                    div(id="map" class="col-md-4")
+
+            hr
+            div(class="row")
+                div(class="col-md-12")
+                    div(class="form-group")
+                        label(for="claimDetails") Claim Details:
+                        textarea(class="form-control" id="claimDetails" name="claimDetails" placeholder="Description of property damage")
+
+            div(class="row")
+                div(class="col-md-6")
+                    div(class="form-group")
+                        label(for="nopropertyObservationstes") Property Observations:
+                        textarea(class="form-control" id="propertyObservations" name="propertyObservations" placeholder="Any additional notes about the property at time of observation or image capture")
+
+                div(class="col-md-6")
+                    div(class="form-group")
+                        label(for="weatherNotes") Observed Weather Conditions:
+                        textarea(class="form-control" id="weatherNotes" name="weatherNotes" placeholder="Any additional notes about weather conditions at time of image capture")
+
+            hr
+            div(class="row")
+                div(class="col-md-12")
+                    button(type="submit" class="btn btn-primary") Save
+                
+            div(class="bottomSpacer")
+
+
+
+include ./footer.jade
+script(src="/static/scripts/mapbox-interaction.js")
+script(src="/static/scripts/property_analysis.js")
+
+                        
